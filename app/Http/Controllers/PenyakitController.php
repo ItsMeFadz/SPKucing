@@ -90,7 +90,7 @@ class PenyakitController extends Controller
                 return response()->json(['error' => 'Gagal menyimpan data. Silakan coba lagi.'], 500);
             }
 
-            return redirect()->back()->with('error', 'Gagal menyimpan data. Silakan coba lagi.');
+            return redirect()->back()->with('error', 'Kode Penyakit Sudah Digunakan.');
         }
 
     }
@@ -139,7 +139,7 @@ class PenyakitController extends Controller
                 return response()->json(['error' => 'Gagal menyimpan data. Silakan coba lagi.'], 500);
             }
 
-            return redirect()->back()->with('error', 'Gagal menyimpan data. Silakan coba lagi.');
+            return redirect()->back()->with('error', 'Kode Penyakit Sudah Digunakan.');
         }
     }
 

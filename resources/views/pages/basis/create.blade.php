@@ -17,8 +17,9 @@
                                 <label class="form-label" for="basic-default-fullname">Nama Penyakit</label>
                                 <select class="form-select mt-1" name="id_penyakit">
                                     <option selected disabled>--- Pilih Penyakit ---</option>
-                                    @foreach ($penyakit as $penyakit)
-                                        <option value="{{ $penyakit->id_penyakit }}">{{ $penyakit->nama_penyakit }}</option>
+                                    @foreach ($penyakit as $item)
+                                        <option value="{{ $item->id_penyakit }}">({{ $item->kode_penyakit }})
+                                            {{ $item->nama_penyakit }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -28,7 +29,6 @@
                                         <th class="sort" data-sort="no">No</th>
                                         <th class="sort" data-sort="kode_gejala">Kode Gejala</th>
                                         <th class="sort" data-sort="nama_gejala">Nama Gejala</th>
-                                        {{-- <th class="sort" data-sort="bobot_prioritas">Bobot Prioritas</th> --}}
                                         <th class="sort" data-sort="aksi">Aksi</th>
                                     </tr>
                                 </thead>
@@ -39,7 +39,6 @@
                                             <td>{{ $i++ }}</td>
                                             <td>{{ $item->kode_gejala }}</td>
                                             <td>{{ $item->nama_gejala }}</td>
-                                            {{-- <td>0,00</td> --}}
                                             <td>
                                                 <div class="form-check form-switch">
                                                     <input class="form-check-input" type="checkbox" name="id_gejala[]"
@@ -59,7 +58,6 @@
                             <button type="submit" class="btn btn-success"><i
                                     class="ri-file-4-line align-bottom me-1"></i>Simpan</button>
                         </form>
-
                     </div>
                 </div>
             </div>

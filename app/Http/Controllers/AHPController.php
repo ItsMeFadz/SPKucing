@@ -17,7 +17,6 @@ class AHPController extends Controller
             'id_basis' => 'required',
             'jumlah_ratio' => 'required',
             'n_kriteria' => 'required',
-            'lamda_max' => 'required',
             'consistency_index' => 'required',
             'consistency_ratio' => 'required',
         ]);
@@ -29,7 +28,6 @@ class AHPController extends Controller
                 'id_basis' => $request->id_basis,
                 'jumlah_ratio' => $request->jumlah_ratio,
                 'n_kriteria' => $request->n_kriteria,
-                'lamda_max' => $request->lamda_max,
                 'consistency_index' => $request->consistency_index,
                 'consistency_ratio' => $request->consistency_ratio,
             ]

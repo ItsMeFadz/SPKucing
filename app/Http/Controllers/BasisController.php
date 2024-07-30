@@ -15,20 +15,20 @@ use Illuminate\Support\Facades\Log;
 
 class BasisController extends Controller
 {
-    public function index()
-    {
-        // $basis = BasisModel::all();
-        $basis = BasisModel::with('penyakit')->get();
-        // $settingItem = SettingModel::first();
-        $currentUser = Auth::user();
-        return view('pages.basis.index', [
-            'title' => 'Basis',
-            'active' => 'Basis',
-            'basis' => $basis,
-            'currentUser' => $currentUser,
-            // 'settingItem' => $settingItem, // Menambahkan settingItem ke dalam array
-        ]);
-    }
+public function index()
+{
+    // $basis = BasisModel::all();
+    $basis = BasisModel::with('penyakit')->get();
+    // $settingItem = SettingModel::first();
+    $currentUser = Auth::user();
+    return view('pages.basis.index', [
+        'title' => 'Basis',
+        'active' => 'Basis',
+        'basis' => $basis,
+        'currentUser' => $currentUser,
+        // 'settingItem' => $settingItem, // Menambahkan settingItem ke dalam array
+    ]);
+}
 
     public function create()
     {
@@ -64,8 +64,6 @@ class BasisController extends Controller
         ]);
     }
 
-
-
     public function set_bobot($id)
     {
         // $settingItem = SettingModel::first();
@@ -73,7 +71,7 @@ class BasisController extends Controller
         $currentUser = Auth::user();
         return view('pages.basis.set_bobot', [
             'title' => 'Edit Bobot',
-            'active' => 'Bobot',
+            'active' => 'Basis',
             // 'gejala' => BasisModel::findOrFail($id),
             'currentUser' => $currentUser,
             'basisDetails' => $basisDetails, // Menambahkan settingItem ke dalam array 

@@ -30,8 +30,8 @@
                                         <div>
                                             <a href="gejala/create"><button class="btn btn-success add-btn"><i
                                                         class="ri-add-line align-bottom me-1"></i>Tambah</button></a>
-                                            <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
-                                                    class="ri-delete-bin-2-line"></i></button>
+                                            {{-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
+                                                    class="ri-delete-bin-2-line"></i></button> --}}
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -94,14 +94,8 @@
                                     </table>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <div class="pagination-wrap hstack gap-2">
-                                        <a class="page-item pagination-prev disabled" href="#">
-                                            Sebelumnya
-                                        </a>
-                                        <ul class="pagination listjs-pagination mb-0"></ul>
-                                        <a class="page-item pagination-next" href="#">
-                                            Selanjutnya
-                                        </a>
+                                    <div>
+                                        {{ $gejala->links('pagination::bootstrap-5') }}
                                     </div>
                                 </div>
                             </div>

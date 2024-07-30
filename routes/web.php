@@ -34,6 +34,7 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 Route::get('/diagnosis', [DiagnosisController::class, 'index']);
 Route::get('/hasil', [DiagnosisController::class, 'index']);
 Route::post('/diagnosis/calculate', [DiagnosisController::class, 'calculate'])->name('diagnosis.calculate');
+Route::get('/unduh-pdf', [DiagnosisController::class, 'unduhPdf'])->name('unduh.pdf');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/login-proses', [LoginController::class, 'login_proses'])->name('login_proses');
@@ -43,7 +44,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard');
-
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'index');
         Route::get('/user/create', 'create');
@@ -79,6 +79,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/artikel/update/{id}', 'update');
         Route::delete('/artikel/delete/{id}', 'destroy');
         Route::get('/artikel/search', 'search')->name('artikel.search');
+    });
+
+    Route::controller(DiagnosisController::class)->group(function () {
+        Route::get('/datadiagnosis', 'data_diagnosis');
+        Route::get('/diagnosis/detail/{id}', 'getDiagnosisDetail')->name('diagnosis.detail');
+        Route::get('/diagnosis/download', 'downloadDiagnosisPdf')->name('diagnosis.download');
+
     });
 
     Route::group(['prefix' => 'basis'], function () {

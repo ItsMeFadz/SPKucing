@@ -11,7 +11,7 @@
                             <div class="row g-0">
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4 auth-one-bg h-100 auth-one-bg-position">
-                                        <div class="bg-overlay"></div>
+                                        {{-- <div class="bg-overlay"></div> --}}
                                         <div class="position-relative h-100 d-flex flex-column">
                                             {{-- <div class="mb-4">
                                                 <a href="index.html" class="d-block">
@@ -57,9 +57,12 @@
                                                     <label class="form-check-label" for="auth-remember-check">Remember
                                                         me</label>
                                                 </div>
-
+                                                <!-- Animation Buttons -->
                                                 <div class="mt-4">
-                                                    <button class="btn btn-info w-100" type="submit">Masuk</button>
+                                                    <button type="submit"
+                                                        class="btn btn-primary w-100 btn-animation waves-effect waves-light"
+                                                        data-text="Masuk"><span>Masuk</span></button>
+                                                    {{-- <button class="btn btn-info w-100" type="submit">Masuk</button> --}}
                                                 </div>
                                             </form>
                                         </div>

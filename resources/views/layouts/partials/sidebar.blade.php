@@ -52,8 +52,8 @@
             <li class="menu-title"><span data-key="t-menu">Pengguna</span></li>
 
             <!-- Diagnosis -->
-            <li class="menu-item {{ $active === 'Diagnosis' ? 'active' : '' }}">
-                <a class="nav-link menu-link" href="/diagnosis" role="button" aria-expanded="false">
+            <li class="menu-item {{ $active === 'Data_Diagnosis' ? 'active' : '' }}">
+                <a class="nav-link menu-link" href="/datadiagnosis" role="button" aria-expanded="false">
                     <i class="ri-baidu-line"></i>
                     <span data-key="t-dashboards">Diagnosis</span>
                 </a>

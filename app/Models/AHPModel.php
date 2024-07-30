@@ -15,7 +15,6 @@ class AHPModel extends Model
         'id_basis',
         'jumlah_ratio',
         'n_kriteria',
-        'lamda_max',
         'consistency_index',
         'consistency_ratio',
     ];

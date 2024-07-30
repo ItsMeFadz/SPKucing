@@ -15,4 +15,14 @@ class GejalaModel extends Model
         'kode_gejala',
         'nama_gejala',
     ];
+
+    public function diagnosisDetails()
+    {
+        return $this->hasMany(DiagnosisDetailModel::class, 'id_gejala', 'id_gejala');
+    }
+
+    public function basisDetails()
+    {
+        return $this->hasMany(BasisDetailModel::class, 'id_gejala', 'id_gejala');
+    }
 }

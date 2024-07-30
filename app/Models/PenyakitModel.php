@@ -17,4 +17,15 @@ class PenyakitModel extends Model
         'deskripsi',
         'penanganan',
     ];
+
+    public function basis()
+    {
+        return $this->hasMany(BasisModel::class, 'id_penyakit', 'id_penyakit');
+    }
+
+    public function basisDetails()
+    {
+        return $this->hasMany(BasisDetailModel::class, 'id_penyakit');
+    }
+
 }

@@ -15,7 +15,6 @@
                                 method="post">
                                 @csrf
                                 @method('POST')
-
                                 <div class="step-arrow-nav mb-4">
                                     <ul class="nav nav-pills custom-nav nav-justified" role="tablist">
                                         <li class="nav-item" role="presentation">
@@ -63,6 +62,8 @@
                                                                         @if ($rowDetail->id_gejala == $colDetail->id_gejala) value="1" disabled
                                                                         @elseif ($rowDetail->id_gejala < $colDetail->id_gejala) onchange="updateMatrix(this)"
                                                                         @elseif ($rowDetail->id_gejala > $colDetail->id_gejala && (float) $colDetail->input != 0) value="{{ 1 / (float) $colDetail->input }}" disabled
+                                                                        @elseif ($rowDetail->id_gejala > $colDetail->id_gejala) onchange="updateMatrix(this)"
+                                                                        @elseif ($rowDetail->id_gejala < $colDetail->id_gejala && (float) $colDetail->input != 0) value="{{ 1 / (float) $colDetail->input }}" disabled
                                                                         @else value="" disabled @endif>
                                                                 </td>
                                                             @endforeach
@@ -171,7 +172,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th>Jumlah Ratio</th>
+                                                    <th>Lamda Max</th>
                                                     <td id="rasio"></td>
                                                 </tr>
                                                 <tr>
@@ -183,10 +184,10 @@
                                                         @endphp
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <th>Lamda Max</th>
                                                     <td id="lamda-max"></td>
-                                                </tr>
+                                                </tr> --}}
                                                 <tr>
                                                     <th>Consistency Index</th>
                                                     <td id="consistency-index"></td>
@@ -236,7 +237,7 @@
 
                 var jumlahRatio = $('#rasio').text();
                 var nKriteria = {{ $basisDetails->count() }};
-                var lamdaMax = $('#lamda-max').text();
+                // var lamdaMax = $('#lamda-max').text();
                 var consistencyIndex = $('#consistency-index').text();
                 var bobotPrioritas = $('#priority-row-' + idBasis).text();
                 var idPenyakit = $('#id_penyakit').val(); // Sesuaikan dengan cara Anda mendapatkan id_penyakit
@@ -264,7 +265,7 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            alert('Data Basis Detail berhasil disimpan!');
+                            alert('Data Basis berhasil disimpan!');
                         } else {
                             alert('Gagal menyimpan data Basis. Pesan kesalahan: ' + response.message);
                         }
@@ -283,7 +284,7 @@
                         id_basis: idBasis,
                         jumlah_ratio: jumlahRatio,
                         n_kriteria: nKriteria,
-                        lamda_max: lamdaMax,
+                        // lamda_max: lamdaMax,
                         consistency_index: consistencyIndex,
                         consistency_ratio: consistencyRatio
                     },
@@ -395,11 +396,11 @@
             document.getElementById('rasio').innerText = totalResult.toPrecision(
                 3);
 
-            const lamdaMax = totalResult / totalIds;
-            document.getElementById('lamda-max').innerText = lamdaMax.toPrecision(
-                3);
+            // const lamdaMax = totalResult / totalIds;
+            // document.getElementById('lamda-max').innerText = lamdaMax.toPrecision(
+            //     3);
 
-            const consistencyIndex = (lamdaMax - totalIds) / (totalIds - 1);
+            const consistencyIndex = (totalResult - totalIds) / (totalIds - 1);
             document.getElementById('consistency-index').innerText = consistencyIndex.toPrecision(
                 3);
 

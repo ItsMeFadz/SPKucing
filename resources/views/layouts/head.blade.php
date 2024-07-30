@@ -12,6 +12,7 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('velzon/assets/images/favicon.ico') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- jsvectormap css -->
     <link href="{{ asset('velzon/assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet"

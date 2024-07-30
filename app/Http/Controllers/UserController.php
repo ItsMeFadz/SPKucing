@@ -76,7 +76,7 @@ class UserController extends Controller
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->errors())->withInput();
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Gagal menyimpan data. Silakan coba lagi.');
+            return redirect()->back()->with('error', 'Username Sudah Digunakan.');
         }
     }
 

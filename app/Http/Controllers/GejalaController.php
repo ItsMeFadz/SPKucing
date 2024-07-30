@@ -16,6 +16,7 @@ class GejalaController extends Controller
     public function index()
     {
         $gejala = GejalaModel::all();
+        $gejala = GejalaModel::paginate(10);
         $currentUser = Auth::user();
         // $settingItem = SettingModel::first();
         return view('pages.gejala.index', [
@@ -90,7 +91,7 @@ class GejalaController extends Controller
                 return response()->json(['error' => 'Gagal menyimpan data. Silakan coba lagi.'], 500);
             }
 
-            return redirect()->back()->with('error', 'Gagal menyimpan data. Silakan coba lagi.');
+            return redirect()->back()->with('error', 'Kode Gejala Sudah Digunakan.');
         }
 
     }

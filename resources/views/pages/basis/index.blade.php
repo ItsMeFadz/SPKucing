@@ -43,6 +43,7 @@
                                     <thead class="table-light">
                                         <tr>
                                             <th class="sort" data-sort="no">No</th>
+                                            <th class="sort" data-sort="kode_penyakit">Kode Penyakit</th>
                                             <th class="sort" data-sort="penyakit">Nama Penyakit</th>
                                             <th class="sort" data-sort="aksi">Aksi</th>
                                         </tr>
@@ -54,6 +55,7 @@
                                                 {{-- <td class="id" style="display:none;"><a href="javascript:void(0);"
                                                         class="fw-medium link-primary">{{ $item->id_artikel }}</a></td> --}}
                                                 <td><?= $i++ ?></td>
+                                                <td>{{ $item->penyakit->kode_penyakit }}</td>
                                                 <td>{{ $item->penyakit->nama_penyakit }}</td>
                                                 <td>
                                                     <div class="d-flex gap-2">

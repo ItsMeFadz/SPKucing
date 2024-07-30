@@ -32,7 +32,6 @@
                             <a class="nav-link" href="#tentangkita">Tentang Kita</a>
                         </li>
                     </ul>
-
                     <div class="">
                         <a href="/login" class="btn btn-success">Masuk</a>
                     </div>
@@ -225,9 +224,9 @@
                                         class="avatar-xs rounded-circle">
                                     <div class="ms-2 flex-grow-1">
                                         <a href="#!">
-                                            <h6 class="mb-0 fs-15">Nancy Martino</h6>
+                                            <h6 class="mb-0 fs-15">Fadhilah Ruhiyah</h6>
                                         </a>
-                                        <p class="mb-0 text-muted fs-13">Owners</p>
+                                        <p class="mb-0 text-muted fs-13">Penulis</p>
                                     </div>
                                     <div class="bookmark-icon">
                                         <button type="button" class="btn btn-icon active" data-bs-toggle="button"
@@ -289,18 +288,16 @@
                             </div>
                         </div>
                     </div>
-                </div><!--end row-->
-            </div><!--end container-->
+                </div>
+            </div>
         </section>
-
-
         <footer class="custom-footer bg-dark py-5 position-relative">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 mt-4">
                         <div>
                             <div>
-                                <img src="{{ asset('velzon/assets/images/logo-light.png') }}" alt="logo light"
+                                <img src="{{ asset('velzon/assets/images/sipakar-landing.png') }}" alt="logo light"
                                     height="17">
                             </div>
                             <div class="mt-4">
