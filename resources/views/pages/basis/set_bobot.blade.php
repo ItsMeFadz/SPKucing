@@ -7,8 +7,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-content-between">
                             <h4 class="card-title mb-0">Set Bobot AHP</h4>
+                            {{-- <h4 class="card-title mb-0">
+                                @foreach ($penyakit as $penyakitDetail)
+                                    {{ $penyakitDetail->kode_penyakit }} - {{ $penyakitDetail->nama_penyakit }}
+                                @endforeach
+                            </h4> --}}
                         </div>
                         <div class="card-body">
                             <form action="/basis/store" enctype="multipart/form-data" class="form-steps" autocomplete="off"
@@ -82,6 +87,10 @@
                                             </table>
                                         </div>
                                         <div class="d-flex align-items-start gap-3 mt-4">
+                                            <a href="/basis" class="left"> <button type="button"
+                                                    class="btn btn-light btn-label ms-auto nexttab">
+                                                    <i class="ri-arrow-left-line label-icon align-middle fs-16"></i>Kembali
+                                                </button></a>
                                             <button type="button" id="nextButton"
                                                 class="btn btn-success btn-label right ms-auto nexttab"
                                                 data-nexttab="normalisasi-tab">
@@ -124,9 +133,9 @@
                                         </table>
                                         <div class="d-flex align-items-start gap-3 mt-4">
                                             <button type="button" class="btn btn-light btn-label previestab"
-                                                data-previous="steparrow-gen-info-tab">
-                                                <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Back
-                                                to General
+                                                data-previous="perbandingan-tab">
+                                                <i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>
+                                                Kembali
                                             </button>
                                             <button type="button" id="calculateButton"
                                                 class="btn btn-success btn-label right ms-auto nexttab"
@@ -158,7 +167,7 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th colspan="3">Jumlah Ratio</th>
+                                                    <th colspan="3">Jumlah</th>
                                                     <th class="total-result" id="total-result"></th>
                                                 </tr>
                                             </tfoot>
@@ -199,14 +208,15 @@
                                             </tbody>
                                         </table>
                                         <div class="text-center">
-                                            <div class="avatar-md mt-5 mb-4 mx-auto">
+                                            {{-- <div class="avatar-md mt-5 mb-4 mx-auto">
                                                 <div class="avatar-title bg-light text-success display-4 rounded-circle">
                                                     <i class="ri-checkbox-circle-fill"></i>
+                                                    <i class="ri-close-circle-fill"></i>
                                                 </div>
                                             </div>
                                             <h5>Bobot Konsisten !</h5>
                                             <p class="text-muted">Bobot Prioritas dapat digunakan apabila Consistency Ratio
-                                                (CR) bernilai Kurang dari 0,1 </p>
+                                                (CR) bernilai Kurang dari 0,1 </p> --}}
                                             <button type="button" id="your-button-id"
                                                 class="btn btn-success btn-label right ms-auto Simpantab"
                                                 data-savetab="normalisasi-tab">

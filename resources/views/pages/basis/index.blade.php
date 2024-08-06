@@ -52,11 +52,9 @@
                                         <?php $i = 1; ?>
                                         @foreach ($basis as $item)
                                             <tr>
-                                                {{-- <td class="id" style="display:none;"><a href="javascript:void(0);"
-                                                        class="fw-medium link-primary">{{ $item->id_artikel }}</a></td> --}}
                                                 <td><?= $i++ ?></td>
-                                                <td>{{ $item->penyakit->kode_penyakit }}</td>
-                                                <td>{{ $item->penyakit->nama_penyakit }}</td>
+                                                <td>{{ $item->kode_penyakit }}</td>
+                                                <td>{{ $item->nama_penyakit }}</td>
                                                 <td>
                                                     <div class="d-flex gap-2">
                                                         <div class="set">

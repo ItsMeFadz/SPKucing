@@ -1,5 +1,7 @@
 @include('layouts.head')
 
+@include('layouts.head')
+
 <body data-bs-spy="scroll" data-bs-target="#navbar-example">
     <div class="layout-wrapper landing">
         <section class="section pb-0 hero-section" id="hero">
@@ -110,7 +112,7 @@
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                <tbody id="gejala-table-body">
                                                                     @foreach ($gejalas as $index => $gejala)
                                                                         <tr>
                                                                             <td class="text-center">
@@ -140,7 +142,31 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
-                                                        <div class="d-flex bd-highlight mb-1 mt-2">
+                                                        <div class="d-flex justify-content-between mb-1 mt-2 mx-2">
+                                                            <div class="d-flex align-items-center">
+                                                                <a href="/" class="btn btn-light btn-label"
+                                                                    id="back-button" style="display: none;">
+                                                                    <i
+                                                                        class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>
+                                                                    Kembali
+                                                                </a>
+                                                                <button type="button" class="btn btn-secondary ms-1"
+                                                                    id="previous-page"
+                                                                    style="display: none;">Previous</button>
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <button type="button" class="btn btn-secondary ms-2"
+                                                                    id="next-page">Next</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-success btn-label right ms-2"
+                                                                    id="diagnosis-button" style="display: none;">
+                                                                    <i
+                                                                        class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Diagnosis
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- <div class="d-flex bd-highlight mb-1 mt-2">
                                                             <div class="me-auto p-2 bd-highlight">
                                                                 <a href="/" class="btn btn-light btn-label">
                                                                     <i
@@ -155,7 +181,7 @@
                                                                         class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Diagnosis
                                                                 </button>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -168,39 +194,69 @@
                 </div>
             </div>
             <!-- end row -->
-    </div>
-    <!-- end container -->
-    </section>
+        </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('form');
+            const gejalaRows = document.querySelectorAll('#gejala-table-body tr');
+            const rowsPerPage = 5;
+            let currentPage = 1;
+            const totalPages = Math.ceil(gejalaRows.length / rowsPerPage);
 
-            form.addEventListener('submit', function(e) {
-                let anySelected = false;
-                const selects = form.querySelectorAll('select[name^="gejala["]');
+            const previousPageButton = document.getElementById('previous-page');
+            const nextPageButton = document.getElementById('next-page');
+            const diagnosisButton = document.getElementById('diagnosis-button');
+            const backButton = document.getElementById('back-button');
 
-                selects.forEach(select => {
-                    if (select.value !== '0') { // Jika ada yang tidak 'Pilih Keyakinan'
-                        anySelected = true;
+            function displayPage(page) {
+                gejalaRows.forEach((row, index) => {
+                    row.style.display = 'none';
+                    if (index >= (page - 1) * rowsPerPage && index < page * rowsPerPage) {
+                        row.style.display = 'table-row';
                     }
                 });
+                previousPageButton.style.display = page === 1 ? 'none' : 'inline-block';
+                nextPageButton.style.display = page === totalPages ? 'none' : 'inline-block';
+                diagnosisButton.style.display = page === totalPages ? 'inline-block' : 'none';
+                backButton.style.display = page === 1 ? 'inline-block' : 'none';
+            }
 
-                if (!anySelected) {
-                    e.preventDefault(); // Mencegah form submit
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Peringatan!',
-                        text: 'Silakan pilih keyakinan untuk setidaknya satu gejala.',
-                        confirmButtonText: 'OK'
-                    });
+            previousPageButton.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayPage(currentPage);
                 }
+            });
+
+            nextPageButton.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayPage(currentPage);
+                }
+            });
+
+            displayPage(currentPage);
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah Anda yakin dengan pilihan gejala Anda?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, yakin',
+                    cancelButtonText: 'Tidak',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
             });
         });
     </script>
-
 
     <script src="{{ asset('velzon/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('velzon/assets/libs/simplebar/simplebar.min.js') }}"></script>

@@ -15,7 +15,7 @@ class GejalaController extends Controller
 {
     public function index()
     {
-        $gejala = GejalaModel::all();
+        $gejala = GejalaModel::orderBy('kode_gejala', 'asc')->get();
         $gejala = GejalaModel::paginate(10);
         $currentUser = Auth::user();
         // $settingItem = SettingModel::first();

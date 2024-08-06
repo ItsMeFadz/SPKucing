@@ -15,20 +15,23 @@ use Illuminate\Support\Facades\Log;
 
 class BasisController extends Controller
 {
-public function index()
-{
-    // $basis = BasisModel::all();
-    $basis = BasisModel::with('penyakit')->get();
-    // $settingItem = SettingModel::first();
-    $currentUser = Auth::user();
-    return view('pages.basis.index', [
-        'title' => 'Basis',
-        'active' => 'Basis',
-        'basis' => $basis,
-        'currentUser' => $currentUser,
-        // 'settingItem' => $settingItem, // Menambahkan settingItem ke dalam array
-    ]);
-}
+    public function index()
+    {
+        $basis = BasisModel::with('penyakit')
+            ->join('penyakit', 'basisrule.id_penyakit', '=', 'penyakit.id_penyakit')
+            ->orderBy('penyakit.kode_penyakit', 'asc') // Mengurutkan berdasarkan kode_penyakit
+            ->select('basisrule.*', 'penyakit.kode_penyakit', 'penyakit.nama_penyakit')
+            ->get();
+
+        $currentUser = Auth::user();
+        return view('pages.basis.index', [
+            'title' => 'Basis',
+            'active' => 'Basis',
+            'basis' => $basis,
+            'currentUser' => $currentUser,
+        ]);
+    }
+
 
     public function create()
     {
@@ -48,8 +51,16 @@ public function index()
     {
         $currentUser = Auth::user();
         $basis = BasisModel::findOrFail($id);
-        $gejala = GejalaModel::all();
         $penyakit = PenyakitModel::all();
+
+        // Menggunakan left join untuk mendapatkan semua gejala dan bobot_prioritas, diurutkan berdasarkan id_gejala
+        $gejala = GejalaModel::leftJoin('basisrule_detail', function ($join) use ($id) {
+            $join->on('gejala.id_gejala', '=', 'basisrule_detail.id_gejala')
+                ->where('basisrule_detail.id_basis', '=', $id);
+        })
+            ->select('gejala.*', 'basisrule_detail.bobot_prioritas')
+            ->orderBy('gejala.id_gejala', 'asc')
+            ->get();
 
         $selectedGejala = BasisDetailModel::where('id_basis', $id)->pluck('id_gejala')->toArray();
 
@@ -64,9 +75,11 @@ public function index()
         ]);
     }
 
+
     public function set_bobot($id)
     {
         // $settingItem = SettingModel::first();
+        // $penyakit = PenyakitModel::all();
         $basisDetails = BasisDetailModel::with('gejala')->where('id_basis', $id)->get();
         $currentUser = Auth::user();
         return view('pages.basis.set_bobot', [
@@ -75,6 +88,7 @@ public function index()
             // 'gejala' => BasisModel::findOrFail($id),
             'currentUser' => $currentUser,
             'basisDetails' => $basisDetails, // Menambahkan settingItem ke dalam array 
+            // 'penyakit' => $penyakit, // Menambahkan settingItem ke dalam array 
         ]);
     }
 

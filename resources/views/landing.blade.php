@@ -132,8 +132,6 @@
                     <div class="col-lg-8">
                         <div class="text-center mb-5">
                             <h2 class="mb-3 fw-semibold lh-base">Artikel</h2>
-                            <p class="text-muted mb-4">Collection widgets specialize in displaying many elements of the
-                                same type, such as a collection of pictures from a collection of articles.</p>
                         </div>
                     </div>
                 </div>
@@ -220,7 +218,7 @@
                         <div class="card explore-box card-animate border">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{ asset('velzon/assets/images/users/avatar-2.jpg') }}" alt=""
+                                    <img src="{{ asset('velzon/assets/images/users/penulis.png') }}" alt=""
                                         class="avatar-xs rounded-circle">
                                     <div class="ms-2 flex-grow-1">
                                         <a href="#!">
@@ -228,26 +226,21 @@
                                         </a>
                                         <p class="mb-0 text-muted fs-13">Penulis</p>
                                     </div>
-                                    <div class="bookmark-icon">
-                                        <button type="button" class="btn btn-icon active" data-bs-toggle="button"
-                                            aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
-                                    </div>
                                 </div>
                                 <div class="explore-place-bid-img overflow-hidden rounded">
-                                    <img src="{{ asset('velzon/assets/images/nft/img-05.jpg') }}" alt=""
+                                    <img src="{{ asset('velzon/assets/images/nft/penulis.png') }}" alt=""
                                         class="explore-img w-100">
                                     <div class="bg-overlay"></div>
                                     <div class="place-bid-btn">
-                                        <a href="#!" class="btn btn-success"><i
-                                                class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                        <a href="https://wa.me/+6281312400248" class="btn btn-success"><i
+                                                class=" ri-whatsapp-fill align-bottom me-1"></i>Hubungi</a>
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <p class="fw-medium mb-0 float-end"><i
-                                            class="mdi mdi-heart text-danger align-middle"></i> 19.29k </p>
-                                    <h5 class="text-success"><i class="mdi mdi-ethereum"></i> 97.8 ETH </h5>
+                                    <p class="fw-medium mb-0 float-end">
+                                    <h5 class="text-success"><i class="mdi mdi-ethereum"></i> Mahasiswa </h5>
                                     <h6 class="fs-16 mb-0"><a href="apps-nft-item-details.html"
-                                            class="link-dark">Patterns arts &amp; culture</a></h6>
+                                            class="link-dark">Universitas Muhammadiyah Cirebon</a></h6>
                                 </div>
                             </div>
                         </div>
@@ -256,34 +249,29 @@
                         <div class="card explore-box card-animate border">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img src="{{ asset('velzon/assets/images/users/avatar-9.jpg') }}" alt=""
+                                    <img src="{{ asset('velzon/assets/images/users/pakar.jpg') }}" alt=""
                                         class="avatar-xs rounded-circle">
                                     <div class="ms-2 flex-grow-1">
                                         <a href="#!">
-                                            <h6 class="mb-0 fs-15">Henry Baird</h6>
+                                            <h6 class="mb-0 fs-15">drh. Widia Ilhami</h6>
                                         </a>
-                                        <p class="mb-0 text-muted fs-13">Creators</p>
-                                    </div>
-                                    <div class="bookmark-icon">
-                                        <button type="button" class="btn btn-icon" data-bs-toggle="button"
-                                            aria-pressed="true"><i class="mdi mdi-cards-heart fs-16"></i></button>
+                                        <p class="mb-0 text-muted fs-13">Pakar</p>
                                     </div>
                                 </div>
                                 <div class="explore-place-bid-img overflow-hidden rounded">
-                                    <img src="{{ asset('velzon/assets/images/nft/img-03.jpg') }}" alt=""
+                                    <img src="{{ asset('velzon/assets/images/nft/pakar.jpg') }}" alt=""
                                         class="explore-img w-100">
                                     <div class="bg-overlay"></div>
                                     <div class="place-bid-btn">
-                                        <a href="#!" class="btn btn-success"><i
-                                                class="ri-auction-fill align-bottom me-1"></i> Place Bid</a>
+                                        <a href="https://wa.me/+6285324936483" class="btn btn-success"><i
+                                                class=" ri-whatsapp-fill align-bottom me-1"></i>Hubungi</a>
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <p class="fw-medium mb-0 float-end"><i
-                                            class="mdi mdi-heart text-danger align-middle"></i> 31.64k </p>
-                                    <h5 class="text-success"><i class="mdi mdi-ethereum"></i> 475.23 ETH </h5>
+                                    <p class="fw-medium mb-0 float-end"></p>
+                                    <h5 class="text-success"><i class="mdi mdi-ethereum"></i> Dokter Hewan</h5>
                                     <h6 class="fs-16 mb-0"><a href="apps-nft-item-details.html"
-                                            class="link-dark">Evolved Reality</a></h6>
+                                            class="link-dark">Vier Petcare Kota Cirebon</a></h6>
                                 </div>
                             </div>
                         </div>
@@ -291,19 +279,14 @@
                 </div>
             </div>
         </section>
-        <footer class="custom-footer bg-dark py-5 position-relative">
+        <footer class="custom-footer bg-dark py-3 position-relative">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mt-4">
+                {{-- <div class="row">
+                    <div class="col-lg-4 ">
                         <div>
                             <div>
                                 <img src="{{ asset('velzon/assets/images/sipakar-landing.png') }}" alt="logo light"
                                     height="17">
-                            </div>
-                            <div class="mt-4">
-                                <p>Premium Multipurpose Admin & Dashboard Template</p>
-                                <p>You can build any type of web application like eCommerce, CRM, CMS, Project
-                                    management apps, Admin Panels, etc using Velzon.</p>
                             </div>
                         </div>
                     </div>
@@ -345,9 +328,9 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
-                <div class="row text-center text-sm-start align-items-center mt-5">
+                <div class="row text-center text-sm-start align-items-center mt-0">
                     <div class="col-sm-6">
 
                         <div>

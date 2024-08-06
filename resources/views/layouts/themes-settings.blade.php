@@ -23,7 +23,7 @@
  <!-- Theme Settings -->
  <div class="offcanvas offcanvas-end border-0" tabindex="-1" id="theme-settings-offcanvas">
      <div class="d-flex align-items-center bg-primary bg-gradient p-3 offcanvas-header">
-         <h5 class="m-0 me-2 text-white">Theme Customizer</h5>
+         <h5 class="m-0 me-2 text-white">Tema Setting</h5>
 
          <button type="button" class="btn-close btn-close-white ms-auto" id="customizerclose-btn"
              data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -715,7 +715,7 @@
          </div>
 
      </div>
-     <div class="offcanvas-footer border-top p-3 text-center">
+     {{-- <div class="offcanvas-footer border-top p-3 text-center">
          <div class="row">
              <div class="col-6">
                  <button type="button" class="btn btn-light w-100" id="reset-layout">Reset</button>
@@ -725,5 +725,5 @@
                      Now</a>
              </div>
          </div>
-     </div>
+     </div> --}}
  </div>

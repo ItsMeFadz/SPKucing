@@ -30,15 +30,15 @@
                                         <div>
                                             <a href="user/create"><button class="btn btn-success add-btn"><i
                                                         class="ri-add-line align-bottom me-1"></i>Tambah</button></a>
-                                            <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
-                                                    class="ri-delete-bin-2-line"></i></button>
+                                            {{-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
+                                                    class="ri-delete-bin-2-line"></i></button> --}}
                                         </div>
                                     </div>
                                     <div class="col-sm">
                                         <div class="d-flex justify-content-sm-end">
                                             <div class="search-box ms-2">
-                                                <input type="text" class="form-control search" placeholder="Search...">
-                                                <i class="ri-search-line search-icon"></i>
+                                                {{-- <input type="text" class="form-control search" placeholder="Search...">
+                                                <i class="ri-search-line search-icon"></i> --}}
                                             </div>
                                         </div>
                                     </div>

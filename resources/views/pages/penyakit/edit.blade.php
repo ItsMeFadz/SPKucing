@@ -44,7 +44,6 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <br>
                             <a href="/penyakit" class="btn btn-success add-btn"><i
                                     class="ri-arrow-left-line align-bottom me-1"></i>Kembali</a>
                             <button type="submit" class="btn btn-success"><i
